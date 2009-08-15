@@ -1,0 +1,56 @@
+# Copyright 2009 Doğan Çeçen
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="x86 and x86-64 emulator and debugger"
+HOMEPAGE="http://bochs.sourceforge.net/"
+LICENCES="LGPL-2.1"
+DESCRIPTION="
+Bochs is a x86 and x86-64 IBM PC compatible emulator and debugger. 
+It supports emulation of the processor(s) (including protected mode),
+memory, disks, display, Ethernet, BIOS and common hardware peripherals of PCs.
+"
+REMOTE_IDS="sourceforge:bochs freshmeat:bochs"
+UPSTREAM_CHANGELOG="http://bochs.cvs.sourceforge.net/viewvc/*checkout*/bochs/bochs/CHANGES"
+
+
+DOWNLOADS="mirror://sourceforge/bochs/${PNV}.tar.gz"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS="debugger ncurses readline sdl vnc wxwindows X"
+
+DEPENDENCIES="
+    build+run:
+        ncurses? ( sys-libs/ncurses )
+        readline? ( sys-libs/readline )
+        sdl? ( media-libs/SDL )
+        wxwindows? ( x11-libs/wxGTK[threads] )
+        X? ( x11-libs/libICE
+             x11-libs/libSM
+             x11-libs/libX11
+             x11-libs/libXpm )
+"
+
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    '--enable-sb16'
+    '--enable-ne2000'
+    '--enable-all-optimizations'
+    '--enable-cpu-level=6'
+    '--enable-x86-64'
+    '--enable-pci'
+    '--enable-clgd54xx'
+    '--enable-plugins'
+    '--enable-show-ips'
+    '--enable-usb'
+    '--enable-usb-ohci'
+    '--enable-sse=2'
+    '--enable-sse-extension'
+    '--enable-mmx'
+    '--enable-sb16=linux'
+    '--enable-fpu'
+    '--enable-acpi'
+    '--enable-smp'
+    '--with-nogui'
+)
+
+DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=( readline debugger 'debugger disasm' )
+DEFAULT_SRC_CONFIGURE_OPTION_WITHS=( 'X x' 'X x11' sdl 'ncurses term' 'vnc rfb' 'wxwindows wx' )

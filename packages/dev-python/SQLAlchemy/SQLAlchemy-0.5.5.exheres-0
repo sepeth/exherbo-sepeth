@@ -1,0 +1,42 @@
+# Copyright 2009 Doğan Çeçen
+# Distributed under the terms of the GNU General Public License v2
+# Based in part upon 'sqlalchemy-0.5.3.ebuild' from Gentoo, which is:
+#     Copyright 1999-2009 Gentoo Foundation
+
+require distutils [ python_dep=2.4 has_lib=true has_bin=false ]
+
+MY_PNV="${PNV/_}"
+WORK="${WORKBASE}/${MY_PNV}"
+
+SUMMARY="The Database Toolkit for Python"
+
+HOMEPAGE="http://www.sqlalchemy.org/"
+DOWNLOADS="mirror://sourceforge/sqlalchemy/${MY_PNV}.tar.gz"
+
+LICENCES="MIT"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS="doc examples postgresql mysql"
+
+DEPENDENCIES="
+    run:
+        postgresql? ( dev-python/psycopg[>=2] )
+        mysql? ( dev-python/mysql-python )
+"
+
+PYTHON_MODNAME="sqlalchemy"
+
+src_install() {
+    distutils_src_install
+
+    if option doc ; then
+        insinto /usr/share/doc/${PNVR}/html
+        doins -r doc/*
+    fi
+
+    if option examples ; then
+        insinto /usr/share/doc/${PNVR}
+        doins -r examples
+    fi
+}
+

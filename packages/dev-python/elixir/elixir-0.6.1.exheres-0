@@ -1,0 +1,24 @@
+# Copyright 2009 Doğan Çeçen
+# Distributed under the terms of the GNU General Public License v2
+
+require distutils [ python_dep=2.4 ]
+
+MY_PN="Elixir"
+MY_PNV="${MY_PN}-$PV"
+WORK="${WORKBASE}/${MY_PNV}"
+
+SUMMARY="Python ORM library on top of the SQLAlchemy"
+
+HOMEPAGE="http://elixir.ematia.de/trac/"
+DOWNLOADS="http://pypi.python.org/packages/source/E/${MY_PN}/${MY_PNV}.tar.gz"
+
+LICENCES="GPL-3"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    run:
+        dev-python/SQLAlchemy
+"
+

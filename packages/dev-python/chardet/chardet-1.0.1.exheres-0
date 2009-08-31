@@ -1,0 +1,18 @@
+# Copyright 2009 Doğan Çeçen
+# Distributed under the terms of the GNU General Public License v2
+
+require distutils [ python_dep=2.1 ]
+
+MY_PN="python2-${PN}"
+MY_PNV="${MY_PN}-${PV}"
+WORK="${WORKBASE}/${MY_PNV}"
+
+SUMMARY="Character Encoding Detector"
+
+HOMEPAGE="http://chardet.feedparser.org/"
+DOWNLOADS="http://chardet.feedparser.org/download/${MY_PNV}.tgz"
+
+LICENCES="LGPL-2.1"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""

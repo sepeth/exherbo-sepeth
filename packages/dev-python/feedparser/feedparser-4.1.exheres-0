@@ -1,0 +1,22 @@
+# Copyright 2009 Doğan Çeçen
+# Distributed under the terms of the GNU General Public License v2
+
+require distutils [ python_dep=2.1 ]
+
+SUMMARY="RSS and Atom feed parser for Python"
+
+HOMEPAGE="http://feedparser.org/"
+DOWNLOADS="http://feedparser.googlecode.com/files/${PNV}.zip"
+
+LICENCES="BSD-2"
+SLOT="0"
+PLATFORMS="~amd64"
+MYOPTIONS=""
+
+DEPENDENCIES="
+    build:
+        app-arch/unzip
+"
+
+WORK="${WORKBASE}"
+

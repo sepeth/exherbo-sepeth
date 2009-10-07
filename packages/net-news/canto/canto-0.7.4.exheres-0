@@ -29,7 +29,7 @@ MYOPTIONS=""
 
 DEPENDENCIES="
     build+run:
-        sys-libs/ncurses[unicode]
+        sys-libs/ncurses
     run:
         dev-python/feedparser
         dev-python/chardet

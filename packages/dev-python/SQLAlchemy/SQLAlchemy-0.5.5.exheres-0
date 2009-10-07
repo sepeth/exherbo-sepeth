@@ -3,7 +3,7 @@
 # Based in part upon 'sqlalchemy-0.5.3.ebuild' from Gentoo, which is:
 #     Copyright 1999-2009 Gentoo Foundation
 
-require distutils [ python_dep=2.4 has_lib=true has_bin=false ]
+require distutils [ python_dep=2.4 has_lib=true has_bin=false python_modules=[ sqlalchemy ] ]
 
 MY_PNV="${PNV/_}"
 WORK="${WORKBASE}/${MY_PNV}"
@@ -23,8 +23,6 @@ DEPENDENCIES="
         postgresql? ( dev-python/psycopg[>=2] )
         mysql? ( dev-python/mysql-python )
 "
-
-PYTHON_MODNAME="sqlalchemy"
 
 src_install() {
     distutils_src_install

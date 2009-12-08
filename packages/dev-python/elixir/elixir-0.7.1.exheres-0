@@ -18,6 +18,8 @@ PLATFORMS="~amd64"
 MYOPTIONS=""
 
 DEPENDENCIES="
+    build:
+        dev-python/setuptools
     run:
         dev-python/SQLAlchemy
 "
